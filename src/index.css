@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #1976d2;
+    --mobile-breakpoint: 768px;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
