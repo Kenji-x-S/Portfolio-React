@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Typography, Box, Card, CardContent } from '@mui/material';
+import { Typography, Box, Grid, Fade } from '@mui/material';
 import { usePageTitle } from '../../context/PageTitleContext';
+import styles from './Education.module.css';
 
 function Education() {
   const { setPageTitle } = usePageTitle();
@@ -9,15 +10,32 @@ function Education() {
     setPageTitle('Education');
   }, [setPageTitle]);
 
+  const educationContent = [
+    { title: 'Computer Science, [Information Technology University]', years: '2023 - Present', details: 'Learning C++, Python, Web-Development, Algorithms and more.' },
+    { title: 'Sitecore Fundamentals, [Udemy]', years: '2023', details: 'Fundamentals of Front-End Design and Content Writing on Sitecore CMS.' },
+  ];
+
   return (
-    <Box>
-      <Typography variant="h4">Education</Typography>
-      <Card sx={{ mt: 2, p: 2 }}>
-        <CardContent>
-          <Typography variant="h6">B.S. Computer Science</Typography>
-          <Typography variant="body2">University Name, 2020-2024</Typography>
-        </CardContent>
-      </Card>
+    <Box className={styles.container}>
+      <Fade in timeout={1000}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h3" className={styles.heading}>
+              Courses and Certifications
+            </Typography>
+            {educationContent.map((item, index) => (
+              <Box key={index} className={styles.contentItem}>
+                <Typography variant="h6" className={styles.subheading}>
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" className={styles.details}>
+                  {item.years} - {item.details}
+                </Typography>
+              </Box>
+            ))}
+          </Grid>
+        </Grid>
+      </Fade>
     </Box>
   );
 }

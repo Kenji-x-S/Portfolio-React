@@ -1,82 +1,138 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Box, TextField, Button } from '@mui/material';
-import * as yup from 'yup';
+import React, { useEffect, useState } from 'react';
+import {
+  Typography,
+  Box,
+  Grid,
+  Fade,
+  TextField,
+  Button,
+  Slide
+} from '@mui/material';
 import { usePageTitle } from '../../context/PageTitleContext';
-
-const schema = yup.object().shape({
-  name: yup.string().required('Name is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  message: yup.string().required('Message is required'),
-});
+import styles from './Contact.module.css';
 
 function Contact() {
   const { setPageTitle } = usePageTitle();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState({});
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [showSnackbar, setShowSnackbar] = useState(false);
+
+  // Error handling state
+  const [emailError, setEmailError] = useState(false);
+  const [emailHelperText, setEmailHelperText] = useState('');
 
   useEffect(() => {
     setPageTitle('Contact');
   }, [setPageTitle]);
 
+  // Email validation regex
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await schema.validate(formData, { abortEarly: false });
-      setErrors({});
-      alert('Form submitted successfully!');
-    } catch (err) {
-      const validationErrors = {};
-      err.inner.forEach((error) => {
-        validationErrors[error.path] = error.message;
-      });
-      setErrors(validationErrors);
+    // Validate email on change
+    if (name === 'email') {
+      if (emailRegex.test(value)) {
+        setEmailError(false);
+        setEmailHelperText('');
+      } else {
+        setEmailError(true);
+        setEmailHelperText('Please enter a valid email address.');
+      }
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate email before submitting
+    if (!emailRegex.test(formData.email)) {
+      setEmailError(true);
+      setEmailHelperText('Please enter a valid email address.');
+      return; // Stop submission if email is invalid
+    }
+
+    setFormData({ name: '', email: '', message: '' });
+    setShowSnackbar(true);
+    setTimeout(() => setShowSnackbar(false), 2000);
+  };
+
   return (
-    <Box>
-      <Typography variant="h4">Contact</Typography>
-      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-        <TextField
-          label="Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          error={!!errors.name}
-          helperText={errors.name}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          error={!!errors.email}
-          helperText={errors.email}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          error={!!errors.message}
-          helperText={errors.message}
-          fullWidth
-          multiline
-          rows={4}
-          margin="normal"
-        />
-        <Button type="submit" variant="contained" sx={{ mt: 2 }}>
-          Submit
-        </Button>
+    <Box className={styles.container}>
+      <Fade in timeout={1000}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h3" className={styles.heading}>
+              Contact Me
+            </Typography>
+            <Box
+              component="form"
+              className={styles.formContainer}
+              onSubmit={handleSubmit}
+            >
+              <TextField
+                label="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                className={styles.input}
+              />
+              <TextField
+                label="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                className={styles.input}
+                error={emailError}
+                helperText={emailHelperText} // Display error message
+              />
+              <TextField
+                label="Message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                multiline
+                rows={4}
+                className={styles.input}
+              />
+              <Button type="submit" variant="contained" className={styles.button}>
+                Submit
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      </Fade>
+
+      {/* Custom Slide Snackbar */}
+      <Box className={styles.snackbarWrapper}>
+        <Slide
+          in={showSnackbar}
+          direction="right"
+          mountOnEnter
+          unmountOnExit
+          timeout={{ enter: 300, exit: 300 }}
+        >
+          <Box className={styles.snackbarContent}>
+            <Typography variant="body2" className={styles.snackbarText}>
+              Form Submitted Successfully!
+            </Typography>
+          </Box>
+        </Slide>
       </Box>
     </Box>
   );
