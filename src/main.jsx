@@ -1,9 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material/styles';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 768, // Adjusted to match your media query
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+});
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <ThemeProvider theme={theme}>
+    <CssBaseline /> {/* Ensures consistent baseline styles */}
     <App />
-  </StrictMode>,
-)
+  </ThemeProvider>
+);
