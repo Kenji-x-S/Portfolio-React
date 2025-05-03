@@ -43,3 +43,26 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
+
+  @media (max-width: 550px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .subheading {
+        font-size: 1rem;
+    }
+
+    .details {
+        font-size: 0.9rem;
+    }
+
+    .projectCard {
+        padding: 0.8rem;
+    }
+}

@@ -38,6 +38,7 @@
   margin: 0;
 }
 
+
 .themeSwitch :global(.MuiSwitch-switchBase) {
   padding: 4px;
 }
@@ -64,18 +65,20 @@
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .rightSection {
-    margin-top: 0.5rem;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
+    margin-top: 0;
   }
 
   .downloadContainer {
     margin-right: 0;
   }
 }
+
