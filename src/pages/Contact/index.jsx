@@ -22,7 +22,6 @@ function Contact() {
 
   const [showSnackbar, setShowSnackbar] = useState(false);
 
-  // Error handling state
   const [emailError, setEmailError] = useState(false);
   const [emailHelperText, setEmailHelperText] = useState('');
 
@@ -30,7 +29,6 @@ function Contact() {
     setPageTitle('Contact');
   }, [setPageTitle]);
 
-  // Email validation regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   const handleChange = (e) => {
@@ -51,11 +49,10 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validate email before submitting
     if (!emailRegex.test(formData.email)) {
       setEmailError(true);
       setEmailHelperText('Please enter a valid email address.');
-      return; // Stop submission if email is invalid
+      return;
     }
 
     setFormData({ name: '', email: '', message: '' });
@@ -96,7 +93,7 @@ function Contact() {
                 margin="normal"
                 className={styles.input}
                 error={emailError}
-                helperText={emailHelperText} // Display error message
+                helperText={emailHelperText}
               />
               <TextField
                 label="Message"
@@ -117,12 +114,10 @@ function Contact() {
           </Grid>
         </Grid>
       </Fade>
-
-      {/* Custom Slide Snackbar */}
       <Box className={styles.snackbarWrapper}>
         <Slide
           in={showSnackbar}
-          direction="right"
+          direction="left"
           mountOnEnter
           unmountOnExit
           timeout={{ enter: 300, exit: 300 }}

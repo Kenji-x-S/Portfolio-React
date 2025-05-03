@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
+import { Drawer, List, ListItemText, useMediaQuery } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import styles from './SideNav.module.css';
 
@@ -16,23 +16,28 @@ function SideNav() {
   return (
     <Drawer
       variant={isMobile ? 'temporary' : 'permanent'}
+      open={!isMobile}
       sx={{
         width: isMobile ? 0 : 240,
         flexShrink: 0,
-        '& .MuiDrawer-paper': { width: 240, boxSizing: 'border-box' },
+        '& .MuiDrawer-paper': {
+          width: 240,
+          boxSizing: 'border-box',
+        },
       }}
-      open={!isMobile}
+      classes={{ paper: styles.drawerPaper }}
     >
       <List>
         {navItems.map((item) => (
-          <ListItem
+          <NavLink
             key={item.text}
-            component={NavLink}
             to={item.path}
-            className={({ isActive }) => (isActive ? styles.active : '')}
+            className={({ isActive }) =>
+              `${styles.navItem} ${isActive ? styles.active : ''}`
+            }
           >
             <ListItemText primary={item.text} />
-          </ListItem>
+          </NavLink>
         ))}
       </List>
     </Drawer>

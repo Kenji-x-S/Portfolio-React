@@ -35,7 +35,7 @@ function Home() {
                 <Button variant="contained" component={Link} to="/projects" className={styles.button}>
                   View Projects
                 </Button>
-                <Button variant="outlined" component={Link} to="/projects" className={styles.button}>
+                <Button variant="outlined" component={Link} to="/contact" className={styles.button}>
                   Contact Me
                 </Button>
                 <Box className={styles.socialContainer}>

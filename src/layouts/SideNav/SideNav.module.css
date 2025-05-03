@@ -1,4 +1,33 @@
+:root {
+  --primary-color: #1976d2;
+  --hover-bg: #e3f2fd;
+  --text-color: #333;
+  --sidebar-bg: #ffffff;
+}
+
+.drawerPaper {
+  background-color: var(--sidebar-bg);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  border-right: none;
+}
+
+.navItem {
+  padding: 12px 20px;
+  margin: 8px 12px;
+  border-radius: 8px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block;
+}
+
+.navItem:hover {
+  background-color: var(--hover-bg);
+  transform: translateX(6px);
+}
+
 .active {
-    background-color: var(--primary-color);
-    color: white;
-  }
+  background-color: var(--primary-color);
+  color: white !important;
+  font-weight: bold;
+}
