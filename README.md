@@ -1,12 +1,108 @@
-# React + Vite
+# 💼 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website built using **React** and **Material-UI (MUI)**! This site showcases my work, skills, and projects in a clean and modern design.
 
-Currently, two official plugins are available:
+🌐 **Live Site:** [danish4014portfolio.vercel.app](https://danish4014portfolio.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🌟 Clean and responsive UI
+- 🧩 Built using **React.js**
+- 🎨 Styled with **Material-UI (MUI)**
+- 📱 Mobile-friendly design
+- 🔗 Smooth navigation to project links and socials
+
+---
+
+## 📸 Screenshots
+
+![alt text](image.png)
+![alt text](image-1.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js
+- **UI Framework:** Material-UI (MUI)
+- **Hosting:** Vercel
+
+---
+
+## 📁 Folder Structure
+
+```
+project-root/
+│
+├── public/              # Static files
+├── src/
+│   ├── components/      # Reusable components (Navbar, Footer, etc.)
+│   ├── pages/           # Pages (Home, Projects, Contact, etc.)
+│   ├── App.jsx           # Main App component
+│   └── index.jsx         # Entry point
+├── package.json
+└── README.md
+```
+
+---
+
+## 📦 Getting Started Locally
+
+### Prerequisites
+
+- Node.js installed
+- npm or yarn installed
+
+### Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Kenji-x-S/Portfolio-React.git
+cd Portfolio-React
+```
+
+2. **Install dependencies:**
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. **Start the development server:**
+
+```bash
+npm start
+# or
+yarn start
+```
+
+---
+
+## 📬 Contact
+
+Feel free to reach out if you have any questions or opportunities:
+
+- **Email:** danishdar4014@outlook.com
+- **LinkedIn:** [Danish Javed Dar](https://www.linkedin.com/in/danish-javed-dar-6951a934b/)
+- **GitHub:** [Kenji-x-S](https://github.com/Kenji-x-S)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Acknowledgements
+
+- [React.js](https://reactjs.org/)
+- [Material-UI](https://mui.com/)
+- [Vercel](https://vercel.com/)
+
+---
+
