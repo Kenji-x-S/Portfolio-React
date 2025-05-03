@@ -147,7 +147,7 @@ function Header() {
         open={drawerOpen}
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
-        className={sideNavStyles.drawer}
+        classes={{ paper: sideNavStyles.drawerPaper }}
       >
         <List sx={{ width: 240 }}>
           {navItems.map((item) => (

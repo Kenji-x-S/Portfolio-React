@@ -40,7 +40,7 @@
 }
 
 :global(body.dark-mode) .drawerPaper {
-  background-color: var(--sidebar-bg);
+  background-color: #121212;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
 }
 

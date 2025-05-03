@@ -74,3 +74,16 @@
 :global(body.dark-mode) .themeIcon {
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    position: absolute;
+    left: 1rem;
+  }
+}
+
+
