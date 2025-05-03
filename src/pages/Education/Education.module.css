@@ -62,3 +62,24 @@
         padding: 0.8rem;
     }
 }
+
+:global(body.dark-mode) .container {
+  background: linear-gradient(135deg, #333 0%, #444 100%);
+}
+
+:global(body.dark-mode) .heading {
+  color: #90caf9;
+}
+
+:global(body.dark-mode) .contentItem {
+  background-color: rgba(33, 33, 33, 0.8);
+  color: #e0e0e0;
+}
+
+:global(body.dark-mode) .subheading {
+  color: #90caf9;
+}
+
+:global(body.dark-mode) .details {
+  color: #b0b0b0;
+}

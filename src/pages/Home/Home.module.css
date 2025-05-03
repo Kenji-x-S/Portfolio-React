@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  flex-direction: column; /* Ensure content stacks vertically on smaller screens */
+  flex-direction: column;
 }
 
 .avatarContainer {
@@ -25,14 +25,14 @@
 
 .contentContainer {
   animation: slideIn 1s ease-out;
-  text-align: center; /* Ensure text is centered */
+  text-align: center;
 }
 
 .heading {
   font-weight: bold;
   color: #1976d2;
   margin-bottom: 1rem;
-  font-size: 2.5rem; /* Large font size for desktops */
+  font-size: 2.5rem;
 }
 
 .description {
@@ -47,7 +47,7 @@
   transition: transform 0.2s ease;
   color: white;
   padding: 10px 20px;
-  font-size: 1rem; /* Normal font size for buttons */
+  font-size: 1rem;
 }
 
 .button:hover {
@@ -120,4 +120,40 @@
     padding: 12px 0;
     font-size: small;
 }
+}
+
+:global(body.dark-mode) .container {
+  background: linear-gradient(135deg, #333333 0%, #1a1a1a 100%);
+}
+
+:global(body.dark-mode) .avatar {
+  border-color: #555;
+}
+
+:global(body.dark-mode) .avatar:hover {
+  border-color: #888;
+}
+
+:global(body.dark-mode) .heading {
+  color: #bbdefb;
+}
+
+:global(body.dark-mode) .description {
+  color: #e0e0e0;
+}
+
+:global(body.dark-mode) .button {
+  background-color: #2196f3;
+}
+
+:global(body.dark-mode) .button:hover {
+  background-color: #1e88e5;
+}
+
+:global(body.dark-mode) .socialIcon {
+  color: #e0e0e0;
+}
+
+:global(body.dark-mode) .socialIcon:hover {
+  color: #bbdefb;
 }

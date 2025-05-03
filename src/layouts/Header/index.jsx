@@ -5,12 +5,12 @@ import {
   Menu,
   MenuItem,
   IconButton,
-  Switch,
   Button,
   Drawer,
   List,
   ListItemText,
-  useMediaQuery
+  useMediaQuery,
+  Switch
 } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -20,12 +20,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import sideNavStyles from '../SideNav/SideNav.module.css';
+import { useTheme } from '../../context/ThemeContext';
 
 function Header() {
   const [downloadAnchorEl, setDownloadAnchorEl] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const { darkMode, toggleDarkMode } = useTheme();
   const isMobile = useMediaQuery('(max-width:768px)');
   const downloadOpen = Boolean(downloadAnchorEl);
 
@@ -35,10 +35,6 @@ function Header() {
 
   const handleDownloadClose = () => {
     setDownloadAnchorEl(null);
-  };
-
-  const handleThemeChange = () => {
-    setDarkMode(!darkMode);
   };
 
   const handleDrawerToggle = () => {
@@ -99,7 +95,7 @@ function Header() {
                   <MenuItem onClick={downloadCV}>Download CV</MenuItem>
                 </Menu>
 
-                <IconButton onClick={handleThemeChange} color="inherit">
+                <IconButton onClick={toggleDarkMode} color="inherit">
                   {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
                 </IconButton>
               </>
@@ -136,7 +132,7 @@ function Header() {
                   )}
                   <Switch
                     checked={darkMode}
-                    onChange={handleThemeChange}
+                    onChange={toggleDarkMode}
                     className={styles.themeSwitch}
                   />
                 </div>

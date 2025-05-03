@@ -38,7 +38,6 @@
   margin: 0;
 }
 
-
 .themeSwitch :global(.MuiSwitch-switchBase) {
   padding: 4px;
 }
@@ -63,22 +62,15 @@
   width: 52px;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .rightSection {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0;
-  }
-
-  .downloadContainer {
-    margin-right: 0;
-  }
+:global(body.dark-mode) .header {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
 }
 
+:global(body.dark-mode) .themeToggle {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(body.dark-mode) .themeIcon {
+  color: #fff;
+}

@@ -31,3 +31,29 @@
   color: white !important;
   font-weight: bold;
 }
+
+:global(body.dark-mode) {
+  --primary-color: #757575;
+  --hover-bg: #424242;
+  --text-color: #b0b0b0;
+  --sidebar-bg: #121212;
+}
+
+:global(body.dark-mode) .drawerPaper {
+  background-color: var(--sidebar-bg);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+:global(body.dark-mode) .navItem {
+  color: var(--text-color);
+}
+
+:global(body.dark-mode) .navItem:hover {
+  background-color: var(--hover-bg);
+}
+
+:global(body.dark-mode) .active {
+  background-color: var(--primary-color);
+  color: white !important;
+  font-weight: bold;
+}

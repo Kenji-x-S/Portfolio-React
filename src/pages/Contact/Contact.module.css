@@ -89,3 +89,37 @@
       font-size: small;
   }
   }
+
+  :global(body.dark-mode) .container {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  }
+  
+  :global(body.dark-mode) .heading {
+    color: #90caf9;
+  }
+  
+  :global(body.dark-mode) .input {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    border: 1px solid #424242;
+  }
+
+  :global(body.dark-mode) input::placeholder,
+:global(body.dark-mode) textarea::placeholder {
+  color: #bbbbbb;
+}
+  
+  :global(body.dark-mode) .button {
+    background-color: #1565c0;
+    color: white;
+  }
+  
+  :global(body.dark-mode) .snackbarContent {
+    background-color: #2e2e2e;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  :global(body.dark-mode) .snackbarText {
+    color: #90caf9;
+  }
+  
