@@ -19,7 +19,7 @@ function Home() {
           <Grid item xs={12} sm={4} className={styles.avatarContainer}>
             <Avatar
               alt="Danish Profile"
-              src="/danish.jpg"
+              src="/assets/cat_image.jpg"
               className={styles.avatar}
             />
           </Grid>
