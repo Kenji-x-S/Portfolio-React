@@ -43,7 +43,7 @@ function Header() {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = 'public/assets/resume.pdf';
+    link.href = '/assets/resume.pdf';
     link.download = 'Danish_CV.pdf';
     document.body.appendChild(link);
     link.click();
